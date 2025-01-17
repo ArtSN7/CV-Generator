@@ -65,3 +65,20 @@ button {
 button:hover {
     background-color: #218838;
 }
+
+#delete_btn {
+    font-size: 0.8rem;
+    padding: 3px 3px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
