@@ -1,45 +1,44 @@
 import '../styles/languages.css';
-import deleteIcon from '../data/delete.svg';
 import React, { useState } from 'react';
 import { DeleteBTN } from '../data/delete_btn.jsx';
 
-const lang_list = [
-    {id:crypto.randomUUID(), language: "Spanish", level: "Native"},
-    {id:crypto.randomUUID(), language: "English", level: "Advanced"},
-    {id:crypto.randomUUID(), language: "French", level: "Basic"}
-];
+const lang_list = [];
 
-function handleDeleteLanguage(id) {
-    setLanguages(languages.filter(lang => lang.id !== id));
-}
-
-function handleAddLanguage() {
-    if (newLanguage && newLevel) {
-        const newLang = { id: crypto.randomUUID(), language: newLanguage, level: newLevel };
-        setLanguages([...languages, newLang]);
-        setNewLanguage('');
-        setNewLevel('');
-    }
-}
 
 function Languages() {
 
     const [languages, setLanguages] = useState(lang_list);
     const [newLanguage, setNewLanguage] = useState('');
-    const [newLevel, setNewLevel] = useState('');
+    const [newLevel, setNewLevel] = useState('Basic');
+
+
+    const handleDeleteLanguage = (id) => {
+        setLanguages(languages.filter(lang => lang.id !== id));
+    };
+
+    const handleAddLanguage = (event) => {
+        event.preventDefault(); // Prevent default form submission
+
+        if (newLanguage && newLevel) {
+            const newLang = { id: crypto.randomUUID(), language: newLanguage, level: newLevel };
+            setLanguages([...languages, newLang]);
+            setNewLanguage('');
+            setNewLevel('Basic');
+        }
+    };
 
 
     return (
         <>
         <div class="form-container">
             <h1>Languages</h1>
-            <form>
-                <div class="form-group">
-                <input type="language" name="language" placeholder="Spanish" required />
-                <select id="level" required>
-                    <option value="basic">Basic</option>
-                    <option value="advanced">Advanced</option>
-                    <option value="native">Native</option>
+            <form onSubmit={handleAddLanguage}>
+                <div className="form-group">
+                <input type="text" name="language" placeholder="Spanish" required value={newLanguage} onChange={(e) => setNewLanguage(e.target.value)}/>
+                <select id="level" required value={newLevel} onChange={(e) => setNewLevel(e.target.value)}>
+                    <option value="Basic">Basic</option>
+                    <option value="Advanced">Advanced</option>
+                    <option value="Native">Native</option>
                 </select>
                 </div>
                 <button type="button" onClick={handleAddLanguage}>Add New Language</button>
@@ -49,7 +48,7 @@ function Languages() {
                 {languages.map(lang => (
 
                     <div className="list"key={lang.id}>
-                        <p1>{lang.language} - {lang.level}</p1>
+                        <p>{lang.language} - {lang.level}</p>
                         <DeleteBTN onClick={() => handleDeleteLanguage(lang.id)}/>
                     </div>
                 
