@@ -1,6 +1,7 @@
 import '../styles/languages.css';
 import deleteIcon from '../data/delete.svg';
 import React, { useState } from 'react';
+import { DeleteBTN } from '../data/delete_btn.jsx';
 
 const lang_list = [
     {id:crypto.randomUUID(), language: "Spanish", level: "Native"},
@@ -49,9 +50,7 @@ function Languages() {
 
                     <div className="list"key={lang.id}>
                         <p1>{lang.language} - {lang.level}</p1>
-                        <button id="delete_btn" onClick={() => handleDeleteLanguage(lang.id)}>
-                            <img src={deleteIcon} alt="Delete Icon" width="12" height="12" />
-                        </button>
+                        <DeleteBTN onClick={() => handleDeleteLanguage(lang.id)}/>
                     </div>
                 
                 ))}
