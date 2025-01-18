@@ -34,7 +34,7 @@ function Languages() {
             setNewLanguage('');
             setNewLevel('Basic');
         }else{
-            handleTextChange("All fields are required");
+            handleTextChange("Input the language");
         }
     };
 
