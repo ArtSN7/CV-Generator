@@ -31,14 +31,27 @@ function GeneralInfro(){
             setGeneralInfo([...generalInfo,newInfo]);
         }
 
-        console.log(generalInfo);
+        alert("Data updated");
     };
 
     const CheckInfo = () => {
-        if (generalInfo.length > 0) { // Check if there's any data
-            setIsModalOpen(true); // Open the modal
-        }
 
+        if (generalInfo.length === 0) {
+            alert("No data to check");
+            return;
+        }
+        
+        setIsModalOpen(true); // Open the modal
+
+    }
+
+    const ClearInfo = () => {
+        if (generalInfo.length === 0) {
+            alert("No data to clear");
+            return;
+        }
+        alert("Data cleared")
+        setGeneralInfo([]);
     }
 
     return (
@@ -54,8 +67,9 @@ function GeneralInfro(){
                 <input type="url" name="linkedin" placeholder="LinkedIn" required value={linkedin} onChange={(e) => setLinkedin(e.target.value)}/>
                 <input type="url" name="github" placeholder="GitHub" required value={github} onChange={(e) => setGithub(e.target.value)}/>
                 </div>
-                <button type="button" onClick={handleAddInfo}>Add Data</button>
+                <button type="button" onClick={handleAddInfo}>Update Data</button>
                 <button type="button" onClick={CheckInfo}>Check Data</button>
+                <button type="button" onClick={ClearInfo}>Clear Data</button>
             </form>
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} data={generalInfo[generalInfo.length - 1]} />
         </div>

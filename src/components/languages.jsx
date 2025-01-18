@@ -30,7 +30,7 @@ function Languages() {
 
     return (
         <>
-        <div class="form-container">
+        <div className="form-container">
             <h1>Languages</h1>
             <form onSubmit={handleAddLanguage}>
                 <div className="form-group">
