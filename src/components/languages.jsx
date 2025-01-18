@@ -16,6 +16,15 @@ function Languages() {
         setLanguages(languages.filter(lang => lang.id !== id));
     };
 
+    const handleTextChange = (txt) =>{
+        const element = document.getElementById("error_text_languages");
+        element.style.display = 'block';
+        element.textContent = txt;
+        setTimeout(() => {
+            element.style.display = 'none';
+        }, 1500);
+    }
+
     const handleAddLanguage = (event) => {
         event.preventDefault(); // Prevent default form submission
 
@@ -24,6 +33,8 @@ function Languages() {
             setLanguages([...languages, newLang]);
             setNewLanguage('');
             setNewLevel('Basic');
+        }else{
+            handleTextChange("All fields are required");
         }
     };
 
@@ -42,6 +53,7 @@ function Languages() {
                 </select>
                 </div>
                 <button type="button" onClick={handleAddLanguage}>Add New Language</button>
+                <p id="error_text_languages" className="error_text_languages"></p>
             </form>
         </div>
         <div className="form-container">

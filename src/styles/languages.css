@@ -94,3 +94,10 @@ button:hover {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+#error_text_languages{
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    font-style: italic;
+}

@@ -29,15 +29,18 @@ function GeneralInfro(){
             setLinkedin('');
             setGithub('');
             setGeneralInfo([...generalInfo,newInfo]);
-        }
 
-        alert("Data updated");
+            handleTextChange("Data was updated");
+        }else{
+            handleTextChange("All fields are required");
+        }
+        
     };
 
     const CheckInfo = () => {
 
         if (generalInfo.length === 0) {
-            alert("No data to check");
+            handleTextChange("No data to check");
             return;
         }
         
@@ -47,11 +50,20 @@ function GeneralInfro(){
 
     const ClearInfo = () => {
         if (generalInfo.length === 0) {
-            alert("No data to clear");
+            handleTextChange("No data to clear");
             return;
         }
-        alert("Data cleared")
+        handleTextChange("Data was cleared");
         setGeneralInfo([]);
+    }
+
+    const handleTextChange = (txt) =>{
+        const element = document.getElementById("error_text");
+        element.style.display = 'block';
+        element.textContent = txt;
+        setTimeout(() => {
+            element.style.display = 'none';
+        }, 1500);
     }
 
     return (
@@ -70,6 +82,7 @@ function GeneralInfro(){
                 <button type="button" onClick={handleAddInfo}>Update Data</button>
                 <button type="button" onClick={CheckInfo}>Check Data</button>
                 <button type="button" onClick={ClearInfo}>Clear Data</button>
+                <p id="error_text" className="error_text"></p>
             </form>
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} data={generalInfo[generalInfo.length - 1]} />
         </div>
