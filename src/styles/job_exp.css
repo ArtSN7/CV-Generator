@@ -38,7 +38,7 @@ form {
     gap: 15px;
 }
 
-.form-group-general-info {
+.form-group-job-exp {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -84,9 +84,9 @@ button:hover {
     transition: background-color 0.3s ease;
 }
 
-.list{
+.list_job_exp{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     background: #fff;
@@ -100,4 +100,14 @@ p.error_text{
     font-size: 0.8rem;
     margin-top: 5px;
     font-style: italic;
+}
+
+textarea {
+    font-size: 0.8rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
 }
