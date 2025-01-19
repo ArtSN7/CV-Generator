@@ -68,7 +68,7 @@ function GeneralInfro(){
 
     return (
         <>
-        <div className="form-container">
+        <div className="form-container-general-info">
             <h1>General Information</h1>
             <form onSubmit={handleAddInfo}>
                 <div className="form-group-general-info">

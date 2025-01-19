@@ -41,12 +41,12 @@ function Languages() {
 
     return (
         <>
-        <div className="form-container">
+        <div className="form-container-languages">
             <h1>Languages</h1>
             <form onSubmit={handleAddLanguage}>
-                <div className="form-group">
+                <div className="form-group-languages">
                 <input type="text" name="language" placeholder="Spanish" required value={newLanguage} onChange={(e) => setNewLanguage(e.target.value)}/>
-                <select id="level" required value={newLevel} onChange={(e) => setNewLevel(e.target.value)}>
+                <select className="level" name="level" id="level" required value={newLevel} onChange={(e) => setNewLevel(e.target.value)}>
                     <option value="Basic">Basic</option>
                     <option value="Advanced">Advanced</option>
                     <option value="Native">Native</option>
@@ -55,17 +55,15 @@ function Languages() {
                 <button type="button" onClick={handleAddLanguage}>Add New Language</button>
                 <p id="error_text_languages" className="error_text_languages"></p>
             </form>
-        </div>
-        <div className="form-container">
-                {languages.map(lang => (
+            {languages.map(lang => (
 
-                    <div className="list"key={lang.id}>
-                        <p>{lang.language} - {lang.level}</p>
-                        <DeleteBTN onClick={() => handleDeleteLanguage(lang.id)}/>
-                    </div>
-                
-                ))}
+                <div className="list"key={lang.id}>
+                    <p>{lang.language} - {lang.level}</p>
+                    <DeleteBTN onClick={() => handleDeleteLanguage(lang.id)}/>
+                </div>
+            ))}
         </div>
+
         </>
     );
 }

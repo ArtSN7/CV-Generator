@@ -9,7 +9,7 @@ body {
     height: 100vh;
 }
 
-.form-container {
+.form-container-general-info {
     background: #fff;
     padding: 20px 30px;
     border-radius: 8px;
@@ -19,7 +19,7 @@ body {
     text-align: center;
 }
 
-.form-container p {
+.form-container-general-info p {
 
     font-size: 1rem;
     font-weight: bold;
