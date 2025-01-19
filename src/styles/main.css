@@ -1,0 +1,35 @@
+.container-main {
+    display: flex; 
+    justify-content: space-between; 
+    gap:calc(0.5rem + 0.5vw);
+    align-items: left;
+    width: 100%;
+}
+
+
+
+.main-with-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main-btn{
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    width: 100%;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

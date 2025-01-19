@@ -5,15 +5,16 @@ import { DeleteBTN } from '../data/delete_btn.jsx';
 const lang_list = [];
 
 
-function Languages() {
+export function Languages({onDataChange}) {
 
     const [languages, setLanguages] = useState(lang_list);
     const [newLanguage, setNewLanguage] = useState('');
     const [newLevel, setNewLevel] = useState('Basic');
 
-
     const handleDeleteLanguage = (id) => {
-        setLanguages(languages.filter(lang => lang.id !== id));
+        const updatedLanguages = languages.filter(lang => lang.id !== id);
+        setLanguages(updatedLanguages); // Update local state
+        onDataChange(updatedLanguages);
     };
 
     const handleTextChange = (txt) =>{
@@ -31,6 +32,7 @@ function Languages() {
         if (newLanguage && newLevel) {
             const newLang = { id: crypto.randomUUID(), language: newLanguage, level: newLevel };
             setLanguages([...languages, newLang]);
+            onDataChange([...languages, newLang]);
             setNewLanguage('');
             setNewLevel('Basic');
         }else{
@@ -57,9 +59,9 @@ function Languages() {
             </form>
             {languages.map(lang => (
 
-                <div className="list"key={lang.id}>
+                <div className="list-languages"key={lang.id}>
                     <p>{lang.language} - {lang.level}</p>
-                    <DeleteBTN onClick={() => handleDeleteLanguage(lang.id)}/>
+                    <DeleteBTN className="lang-delete-btn" onClick={() => handleDeleteLanguage(lang.id)}/>
                 </div>
             ))}
         </div>

@@ -5,7 +5,7 @@ import { DeleteBTN } from '../data/delete_btn.jsx';
 
 const job_list = [];
 
-function JobExp(){
+export function JobExp({onDataChange}){
 
     const [name_of_the_company, setCompanyName] = useState('');
     const [position, setPosition] = useState('');
@@ -32,6 +32,7 @@ function JobExp(){
 
             const newJob = {id: crypto.randomUUID(), name: name_of_the_company, position: position, start_date: start_date, end_date: end_date, description: description };
             setJobExp([...jobExp,newJob]);
+            onDataChange([...jobExp,newJob]);
             setCompanyName('');
             setPosition('');
             setStartDate('');
@@ -45,7 +46,9 @@ function JobExp(){
     };
 
     const handleDeleteJob = (id) => {
-        setJobExp(jobExp.filter(job => job.id !== id))
+        const updatedJobExp = jobExp.filter(job => job.id !== id);
+        setJobExp(updatedJobExp);
+        onDataChange(updatedJobExp);
     };
 
     const handleTextChange = (txt) =>{

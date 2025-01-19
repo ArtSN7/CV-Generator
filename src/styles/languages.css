@@ -42,6 +42,8 @@ form {
     display: flex;
     flex-direction: row;
     gap: 5px;
+    width: 100%;
+    justify-content: space-between;
 }
 
 input {
@@ -73,9 +75,9 @@ button:hover {
     background-color: #218838;
 }
 
-#delete_btn {
+.delete_btn-languages{
     font-size: 0.8rem;
-    padding: 3px 3px;
+    padding: 1px 1px;
     background-color: #dc3545;
     color: #fff;
     border: none;
@@ -84,7 +86,7 @@ button:hover {
     transition: background-color 0.3s ease;
 }
 
-.list{
+.list-languages{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -94,6 +96,8 @@ button:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 0 15px;
     margin: 5px 0;
+    width: 100%;
+
 }
 
 

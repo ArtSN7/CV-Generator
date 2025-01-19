@@ -4,7 +4,7 @@ import  Modal  from '../data/modal.jsx';
 
 // Info = {name: "", surname: "", email: "", phone: "", linkedin: "", github: ""}
 
-function GeneralInfro(){
+export function GeneralInfro({ onDataChange }) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -22,6 +22,7 @@ function GeneralInfro(){
         if (name && surname && email && phone && linkedin && github) {
             const newInfo = { name: name, surname: surname, email: email, phone: phone, linkedin: linkedin, github: github };
             setGeneralInfo([...generalInfo,newInfo]);
+            onDataChange([...generalInfo,newInfo]);
             setName('');
             setSurname('');
             setEmail('');
@@ -55,6 +56,7 @@ function GeneralInfro(){
         }
         handleTextChange("Data was cleared");
         setGeneralInfo([]);
+        onDataChange([]);
     }
 
     const handleTextChange = (txt) =>{
